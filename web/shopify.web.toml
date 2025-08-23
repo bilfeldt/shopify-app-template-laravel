@@ -1,0 +1,6 @@
+name = "laravel"
+roles = ["frontend", "backend"]
+webhooks_path = "/webhooks/app/uninstalled"
+
+[commands]
+dev = "php artisan serve --host=localhost --port=8000"
