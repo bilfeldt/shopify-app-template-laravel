@@ -2,7 +2,7 @@
 
 return [
 
-    'api_key' => env('SHOPIFY_API_KEY'),
+    'client_id' => env('SHOPIFY_CLIENT_ID'),
 
     /*
     |--------------------------------------------------------------------------

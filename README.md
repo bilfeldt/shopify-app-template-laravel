@@ -31,3 +31,8 @@ shopify app init --template=https://github.com/bilfeldt/shopify-app-template-lar
 
 - [Introduction to Shopify apps](https://shopify.dev/docs/apps/getting-started)
 - [Shopify CLI](https://shopify.dev/docs/apps/tools/cli)
+
+## Problems
+
+- Installation does not copy the `.env` or `.env.example` files (or any other hidden files)
+- NOTE: Provide a branch to `app init` by suffixing the url with `#foobar` for the branch named `foobar`
