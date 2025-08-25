@@ -3,4 +3,5 @@ roles = ["frontend", "backend"]
 webhooks_path = "/webhooks/app/uninstalled"
 
 [commands]
-dev = "php artisan serve --host=localhost --port=8000"
+predev = "composer install && npm install && php artisan key:generate"
+dev = "php artisan migrate && npm run build && php artisan serve --host=localhost --port=8000"
