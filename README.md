@@ -27,6 +27,13 @@ This template can be used when initializing a new app using Shopify CLI
 shopify app init --template=https://github.com/bilfeldt/shopify-app-template-laravel
 ```
 
+### Working with the template
+
+#### Localization
+
+> For example, embedded apps receive the app user's chosen locale in the locale request parameter in Shopify's `GET` requests to the app.
+See [here](https://shopify.dev/docs/apps/build/localize-your-app) for more details. Examples are `en-US`, `en-GB`, `en-CA` while a list of all Shopify Admin's supported languages can be found [here](https://help.shopify.com/en/manual/your-account/languages).
+
 ## Developer resources
 
 - [Introduction to Shopify apps](https://shopify.dev/docs/apps/getting-started)
