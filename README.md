@@ -27,6 +27,41 @@ This template can be used when initializing a new app using Shopify CLI
 shopify app init --template=https://github.com/bilfeldt/shopify-app-template-laravel
 ```
 
+### Setting up Laravel
+
+Start by going to the laravel root folder `cd web`.
+
+Initiate the sqlite database:
+
+```shell
+touch database/database.sqlite
+```
+
+Then copy the example environment file to a local version:
+
+```shell
+cp .env.example .env
+```
+
+Generate an app key:
+
+```shell
+php artisan key:generate
+```
+
+And set the `SHOPIFY_CLIENT_ID` environment variable
+
+```
+// web/.env
+SHOPIFY_CLIENT_ID={INSERT-SHOPIFY-APP-CLIENT-ID}
+```
+
+Alternatively run the following command from the root (not the `web` folder) to copy the value from `shopify.app.toml` to `.env`:
+
+```shell
+grep 'client_id = ' shopify.app.toml | sed 's/client_id = "\(.*\)"/\1/' | xargs -I {} sed -i '' 's/^SHOPIFY_CLIENT_ID=.*/SHOPIFY_CLIENT_ID={}/' web/.env
+```
+
 ### Working with the template
 
 #### Localization
