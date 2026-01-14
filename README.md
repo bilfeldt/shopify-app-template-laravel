@@ -10,6 +10,7 @@ This template includes an update setup consisting of:
 - Laravel as the backend service
 - [Shopify App Bridge](https://shopify.dev/docs/api/app-bridge) to add interactivity to your app.
 - [Shopify Polaris (Webcomponent)](https://shopify.dev/docs/beta/next-gen-dev-platform/polaris) to create a UI that adheres to Shopify's App Design Guidelines.
+- [`Shopify/shopify-app-php`](https://github.com/Shopify/shopify-app-php) for request verification, token handling, GraphQL and helper functions
 
 ## Getting started
 
