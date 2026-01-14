@@ -10,6 +10,7 @@ This template includes an update setup consisting of:
 - Laravel as the backend service
 - [Shopify App Bridge](https://shopify.dev/docs/api/app-bridge) to add interactivity to your app.
 - [Shopify Polaris (Webcomponent)](https://shopify.dev/docs/beta/next-gen-dev-platform/polaris) to create a UI that adheres to Shopify's App Design Guidelines.
+- [`Shopify/shopify-app-php`](https://github.com/Shopify/shopify-app-php) for request verification, token handling, GraphQL and helper functions
 
 ## Getting started
 
@@ -27,7 +28,54 @@ This template can be used when initializing a new app using Shopify CLI
 shopify app init --template=https://github.com/bilfeldt/shopify-app-template-laravel
 ```
 
+### Setting up Laravel
+
+Start by going to the laravel root folder `cd web`.
+
+Initiate the sqlite database:
+
+```shell
+touch database/database.sqlite
+```
+
+Then copy the example environment file to a local version:
+
+```shell
+cp .env.example .env
+```
+
+Generate an app key:
+
+```shell
+php artisan key:generate
+```
+
+And set the `SHOPIFY_CLIENT_ID` environment variable
+
+```
+// web/.env
+SHOPIFY_CLIENT_ID={INSERT-SHOPIFY-APP-CLIENT-ID}
+```
+
+Alternatively run the following command from the root (not the `web` folder) to copy the value from `shopify.app.toml` to `.env`:
+
+```shell
+grep 'client_id = ' shopify.app.toml | sed 's/client_id = "\(.*\)"/\1/' | xargs -I {} sed -i '' 's/^SHOPIFY_CLIENT_ID=.*/SHOPIFY_CLIENT_ID={}/' web/.env
+```
+
+### Working with the template
+
+#### Localization
+
+> For example, embedded apps receive the app user's chosen locale in the locale request parameter in Shopify's `GET` requests to the app.
+See [here](https://shopify.dev/docs/apps/build/localize-your-app) for more details. Examples are `en-US`, `en-GB`, `en-CA` while a list of all Shopify Admin's supported languages can be found [here](https://help.shopify.com/en/manual/your-account/languages).
+
 ## Developer resources
 
 - [Introduction to Shopify apps](https://shopify.dev/docs/apps/getting-started)
 - [Shopify CLI](https://shopify.dev/docs/apps/tools/cli)
+
+## Problems
+
+- Installation does not copy the `.env` or `.env.example` files (or any other hidden files)
+- NOTE: Provide a branch to `app init` by suffixing the url with `#foobar` for the branch named `foobar`
