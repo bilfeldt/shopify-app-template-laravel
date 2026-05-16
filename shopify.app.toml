@@ -3,3 +3,6 @@
 
 [access_scopes]
 scopes = ""
+
+# [app_preferences]
+# url = "https://www.app.example.com/preferences"

@@ -2,12 +2,16 @@
 
 This is a template for building an [Public Embedded Shopify app](https://shopify.dev/docs/apps/build/scaffold-app).
 
+Some Shopify Templates, including the first party ones, have a lot of code to support legacy or nieche features. This template is **intentionally keept lightweight yet complete** to support only the relevant and currently recommended features.
+
 ## Benifits
 
-This template includes an update setup consisting of:
+This template includes an updated setup consisting of:
 
 - [Basic Shopify app configuration](https://shopify.dev/docs/apps/build/cli-for-apps/app-configuration) to configure your apps locally with TOML files and deploy your changes using Shopify CLI.
 - Laravel as the backend service
+  - [Shopify managed installation](https://shopify.dev/docs/apps/build/authentication-authorization/app-installation): Simply configure relevant scopes in `shopify.app.toml`
+  - [App-specific webhook subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe#app-specific-vs-shop-specific-subscriptions): Webhooks are defined in `shopify.app.toml` including the
 - [Shopify App Bridge](https://shopify.dev/docs/api/app-bridge) to add interactivity to your app.
 - [Shopify Polaris (Webcomponent)](https://shopify.dev/docs/beta/next-gen-dev-platform/polaris) to create a UI that adheres to Shopify's App Design Guidelines.
 - [`Shopify/shopify-app-php`](https://github.com/Shopify/shopify-app-php) for request verification, token handling, GraphQL and helper functions
