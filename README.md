@@ -9,7 +9,7 @@ Some Shopify Templates, including the first party ones, have a lot of code to su
 This template includes an updated setup consisting of:
 
 - [Basic Shopify app configuration](https://shopify.dev/docs/apps/build/cli-for-apps/app-configuration) to configure your apps locally with TOML files and deploy your changes using Shopify CLI.
-- Laravel as the backend service
+- Laravel 13 as the backend service
   - [Shopify managed installation](https://shopify.dev/docs/apps/build/authentication-authorization/app-installation): Simply configure relevant scopes in `shopify.app.toml`
   - [App-specific webhook subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe#app-specific-vs-shop-specific-subscriptions): Webhooks are defined in `shopify.app.toml` including the
 - [Shopify App Bridge](https://shopify.dev/docs/api/app-bridge) to add interactivity to your app.
