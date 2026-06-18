@@ -1,8 +1,11 @@
 # Shopify App Template - Laravel
 
-This is a template for building an [Public Embedded Shopify app](https://shopify.dev/docs/apps/build/scaffold-app).
+This is a template for building an [Public Embedded Shopify app](https://shopify.dev/docs/apps/build/scaffold-app) using Laravel.
 
 Some Shopify Templates, including the first party ones, have a lot of code to support legacy or nieche features. This template is **intentionally keept lightweight yet complete** to support only the relevant and currently recommended features.
+
+> [!TIP]
+> Sometimes there is no need for a backend and *extension-only apps* is a great solution there. Especially with the addition of the [_App Home UI extensions_](https://shopify.dev/docs/apps/build/app-home/app-home-ui-extensions)
 
 ## Benifits
 
