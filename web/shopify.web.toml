@@ -1,6 +1,6 @@
 name = "laravel"
 roles = ["frontend", "backend"]
-webhooks_path = "/webhooks/app/uninstalled"
+webhooks_path = "/webhooks/shopify"
 
 port=8000 # Shopify assigns a random port if not specified, but there is no way to let PHP serve with the random port
 

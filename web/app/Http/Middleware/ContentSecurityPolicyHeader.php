@@ -13,7 +13,7 @@ class ContentSecurityPolicyHeader
      *
      * @see https://shopify.dev/docs/apps/build/security/set-up-iframe-protection
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -27,10 +27,12 @@ class ContentSecurityPolicyHeader
 
         $shop = $request->query('shop', '');
 
-        $domainHost = $shop ? "https://$shop" : "*.myshopify.com";
-        $allowedDomains = "$domainHost https://admin.shopify.com";
+        $domainHost = $shop ? "https://$shop" : '*.myshopify.com';
+        $allowedDomains = "$domainHost https://admin.shopify.com https://extensions.shopifycdn.com";
 
         $response->headers->set('Content-Security-Policy', "frame-ancestors $allowedDomains;");
+        $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
         return $response;
     }
