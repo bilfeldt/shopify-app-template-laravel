@@ -1,5 +1,7 @@
 <?php
 
+use App\Auth\Guards\ShopifyAppHomeGuard;
+use App\Models\Shop;
 use App\Models\User;
 
 return [
@@ -42,6 +44,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'apphome' => [
+            'driver' => ShopifyAppHomeGuard::DRIVER_NAME,
+            'provider' => 'shops',
+        ],
     ],
 
     /*
@@ -65,6 +72,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+
+        'shops' => [
+            'driver' => 'eloquent',
+            'model' => Shop::class,
         ],
 
         // 'users' => [

@@ -1,7 +1,24 @@
 # This file stores configurations for your Shopify app.
 # It must exist at the root of your app.
 
+[webhooks]
+api_version = "2026-01"
+
+# All webhook topics are delivered to a single canonical endpoint handled by
+# web/routes/webhooks.php (POST /webhooks/shopify), HMAC-verified by the
+# VerifyShopifyWebhook middleware and routed by WebhookDispatcher.
+#
+# IMPORTANT: the mandatory GDPR compliance topics are declared here as
+# `compliance_topics`. Do NOT also configure them in the Partner Dashboard /
+# Dev Dashboard — that would deliver each webhook twice.
+[[webhooks.subscriptions]]
+topics = [ "app/uninstalled" ]
+compliance_topics = [ "customers/redact", "customers/data_request", "shop/redact" ]
+uri = "/webhooks/shopify"
+
 [access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+# Declare the scopes your app needs, e.g. scopes = "read_products,read_orders".
 scopes = ""
 
 # [app_preferences]
